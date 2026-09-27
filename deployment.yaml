@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-support-app
+  namespace: secure-customer-support
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: customer-support-app
+  template:
+    metadata:
+      labels:
+        app: customer-support-app
+    spec:
+      containers:
+        - name: customer-support-app
+          image: nginxinc/nginx-unprivileged:stable-alpine
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: customer-support-ui
+              mountPath: /usr/share/nginx/html/index.html
+              subPath: index.html
+      volumes:
+        - name: customer-support-ui
+          configMap:
+            name: customer-support-ui
