@@ -1,0 +1,721 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: customer-support-ui
+  namespace: secure-customer-support
+  uid: 1c4b65cd-b819-4f4b-976f-71e3c8d39c56
+  resourceVersion: '669396'
+  creationTimestamp: '2026-09-27T07:33:05Z'
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: v1
+      time: '2026-09-27T08:33:13Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:data':
+          .: {}
+          'f:index.html': {}
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Secure Customer Support & Fraud Triage</title>
+
+      <style>
+        * {
+          box-sizing: border-box;
+        }
+
+        body {
+          margin: 0;
+          font-family: Arial, Helvetica, sans-serif;
+          background: #f4f6f8;
+          color: #1f2937;
+        }
+
+        header {
+          background: #1f2937;
+          color: white;
+          padding: 25px 40px;
+        }
+
+        header h1 {
+          margin: 0 0 8px;
+          font-size: 28px;
+        }
+
+        header p {
+          margin: 0;
+          opacity: 0.9;
+        }
+
+        .container {
+          max-width: 1150px;
+          margin: 25px auto;
+          padding: 0 20px;
+        }
+
+        .flow {
+          background: #eef2ff;
+          border-left: 5px solid #4f46e5;
+          padding: 16px;
+          margin-bottom: 22px;
+          border-radius: 5px;
+        }
+
+        .grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 18px;
+        }
+
+        .card {
+          background: white;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 2px 8px #ddd;
+          margin-bottom: 20px;
+        }
+
+        .card h2,
+        .card h3 {
+          margin-top: 0;
+        }
+
+        .metric {
+          font-size: 30px;
+          font-weight: bold;
+          margin: 10px 0;
+        }
+
+        .high {
+          color: #b91c1c;
+          font-weight: bold;
+        }
+
+        .normal {
+          color: #15803d;
+          font-weight: bold;
+        }
+
+        .medium {
+          color: #b45309;
+          font-weight: bold;
+        }
+
+        table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+
+        th,
+        td {
+          padding: 11px;
+          border-bottom: 1px solid #ddd;
+          text-align: left;
+        }
+
+        th {
+          background: #f1f5f9;
+        }
+
+        input,
+        select,
+        textarea {
+          width: 100%;
+          padding: 10px;
+          margin-top: 6px;
+          margin-bottom: 14px;
+          border: 1px solid #cbd5e1;
+          border-radius: 5px;
+          font-size: 14px;
+        }
+
+        textarea {
+          min-height: 90px;
+          resize: vertical;
+        }
+
+        .checkbox {
+          width: auto;
+          margin-right: 8px;
+        }
+
+        button {
+          background: #1f2937;
+          color: white;
+          border: none;
+          padding: 11px 18px;
+          border-radius: 5px;
+          cursor: pointer;
+          margin-top: 8px;
+        }
+
+        button:hover {
+          opacity: 0.9;
+        }
+
+        .result {
+          display: none;
+          margin-top: 18px;
+          padding: 16px;
+          border-radius: 6px;
+          background: #f1f5f9;
+        }
+
+        .badge {
+          display: inline-block;
+          padding: 5px 10px;
+          border-radius: 12px;
+          background: #fee2e2;
+        }
+
+        .success {
+          background: #dcfce7;
+          color: #166534;
+          padding: 12px;
+          border-radius: 5px;
+        }
+
+        .warning {
+          background: #fef3c7;
+          color: #92400e;
+          padding: 12px;
+          border-radius: 5px;
+        }
+
+        .footer {
+          text-align: center;
+          color: #64748b;
+          padding: 25px;
+          font-size: 13px;
+        }
+
+        @media (max-width: 800px) {
+          .grid {
+            grid-template-columns: 1fr;
+          }
+
+          header {
+            padding: 20px;
+          }
+        }
+      </style>
+    </head>
+
+    <body>
+
+      <header>
+        <h1>Secure Customer Support & Fraud Triage</h1>
+        <p>Banking & Financial Services | Cybersecurity Customer Support Prototype</p>
+      </header>
+
+      <div class="container">
+
+        <div class="flow">
+          <strong>Support Workflow:</strong>
+          Customer Request → Authentication → Case Review →
+          Transaction Analysis → Fraud Risk Assessment →
+          Security Monitoring → Resolve or Escalate
+        </div>
+
+        <!-- Dashboard -->
+
+        <div class="grid">
+
+          <div class="card">
+            <h3>Open Support Cases</h3>
+            <div class="metric">2</div>
+            <p>Customer requests requiring review</p>
+          </div>
+
+          <div class="card">
+            <h3>High Risk Cases</h3>
+            <div class="metric high">1</div>
+            <p>Potential fraud requiring escalation</p>
+          </div>
+
+          <div class="card">
+            <h3>Security Events</h3>
+            <div class="metric">2</div>
+            <p>Events requiring investigation</p>
+          </div>
+
+        </div>
+
+        <!-- Customer Support -->
+
+        <div class="card">
+
+          <h2>Submit Customer Support Request</h2>
+
+          <p>
+            Use this form to simulate a banking customer contacting support.
+            The system evaluates the request for potential fraud indicators.
+          </p>
+
+          <form id="supportForm">
+
+            <label>
+              <strong>Customer ID</strong>
+            </label>
+
+            <input
+              id="customerId"
+              type="text"
+              placeholder="e.g. CUST-003"
+              required
+            >
+
+            <label>
+              <strong>Account ID</strong>
+            </label>
+
+            <input
+              id="accountId"
+              type="text"
+              placeholder="e.g. ACC-003"
+              required
+            >
+
+            <label>
+              <strong>Request Category</strong>
+            </label>
+
+            <select id="category">
+
+              <option>Account Inquiry</option>
+              <option>Unauthorized Transaction</option>
+              <option>Card Security</option>
+              <option>Online Banking Access</option>
+              <option>Suspicious Activity</option>
+
+            </select>
+
+            <label>
+              <strong>Transaction Amount (KSh)</strong>
+            </label>
+
+            <input
+              id="amount"
+              type="number"
+              min="0"
+              placeholder="e.g. 85000"
+              required
+            >
+
+            <label>
+              <strong>Transaction Location</strong>
+            </label>
+
+            <input
+              id="location"
+              type="text"
+              placeholder="e.g. Nairobi"
+              required
+            >
+
+            <label>
+              <strong>Description</strong>
+            </label>
+
+            <textarea
+              id="description"
+              placeholder="Describe the customer's request..."
+              required
+            ></textarea>
+
+            <label>
+              <input
+                id="failedLogins"
+                class="checkbox"
+                type="checkbox"
+              >
+              Multiple failed login attempts detected
+            </label>
+
+            <br><br>
+
+            <label>
+              <input
+                id="customerDenies"
+                class="checkbox"
+                type="checkbox"
+              >
+              Customer denies the transaction
+            </label>
+
+            <br><br>
+
+            <button type="submit">
+              Submit Support Request
+            </button>
+
+          </form>
+
+          <div id="result" class="result"></div>
+
+        </div>
+
+        <!-- Existing Cases -->
+
+        <div class="card">
+
+          <h2>Customer Support Cases</h2>
+
+          <table>
+
+            <tr>
+              <th>Case ID</th>
+              <th>Customer</th>
+              <th>Category</th>
+              <th>Priority</th>
+              <th>Risk</th>
+              <th>Status</th>
+            </tr>
+
+            <tr>
+              <td>CASE-001</td>
+              <td>Jane Mwangi</td>
+              <td>Unauthorized Transaction</td>
+              <td class="high">High</td>
+              <td class="high">HIGH</td>
+              <td>Escalated</td>
+            </tr>
+
+            <tr>
+              <td>CASE-002</td>
+              <td>Brian Otieno</td>
+              <td>Account Inquiry</td>
+              <td>Low</td>
+              <td class="normal">NORMAL</td>
+              <td>Resolved</td>
+            </tr>
+
+          </table>
+
+        </div>
+
+        <!-- Fraud Triage -->
+
+        <div class="card">
+
+          <h2>Fraud Triage — CASE-001</h2>
+
+          <p>
+            <strong>Customer:</strong> Jane Mwangi (CUST-001)
+          </p>
+
+          <p>
+            <strong>Account:</strong> ACC-001
+          </p>
+
+          <p>
+            <strong>Reported issue:</strong>
+            Customer denies a KSh 85,000 transaction.
+          </p>
+
+          <h3>Fraud Indicators</h3>
+
+          <ul>
+            <li>Multiple failed login attempts</li>
+            <li>Unusual transaction location</li>
+            <li>High-value transaction</li>
+            <li>Customer reported transaction as unauthorized</li>
+          </ul>
+
+          <p>
+            <strong>Risk Level:</strong>
+            <span class="badge high">HIGH</span>
+          </p>
+
+          <button
+            onclick="escalateCase('CASE-001')"
+          >
+            Escalate to Security
+          </button>
+
+          <div id="escalationResult"></div>
+
+        </div>
+
+        <!-- Transactions -->
+
+        <div class="card">
+
+          <h2>Transaction Review</h2>
+
+          <table>
+
+            <tr>
+              <th>Transaction</th>
+              <th>Account</th>
+              <th>Amount</th>
+              <th>Channel</th>
+              <th>Location</th>
+              <th>Status</th>
+            </tr>
+
+            <tr>
+              <td>TXN-001</td>
+              <td>ACC-001</td>
+              <td>KSh 85,000</td>
+              <td>Mobile</td>
+              <td>Kampala</td>
+              <td class="high">Suspicious</td>
+            </tr>
+
+            <tr>
+              <td>TXN-002</td>
+              <td>ACC-001</td>
+              <td>KSh 2,500</td>
+              <td>ATM</td>
+              <td>Nairobi</td>
+              <td class="normal">Normal</td>
+            </tr>
+
+            <tr>
+              <td>TXN-003</td>
+              <td>ACC-002</td>
+              <td>KSh 4,800</td>
+              <td>Mobile</td>
+              <td>Nairobi</td>
+              <td class="normal">Normal</td>
+            </tr>
+
+          </table>
+
+        </div>
+
+        <!-- Security Events -->
+
+        <div class="card">
+
+          <h2>Security Event Monitoring</h2>
+
+          <table>
+
+            <tr>
+              <th>Event</th>
+              <th>Type</th>
+              <th>Severity</th>
+              <th>Source</th>
+              <th>Status</th>
+            </tr>
+
+            <tr>
+              <td>SEC-001</td>
+              <td>Multiple Failed Logins</td>
+              <td class="high">High</td>
+              <td>Authentication</td>
+              <td>Investigating</td>
+            </tr>
+
+            <tr>
+              <td>SEC-002</td>
+              <td>Unusual Transaction</td>
+              <td class="high">High</td>
+              <td>Transaction Monitoring</td>
+              <td>Investigating</td>
+            </tr>
+
+          </table>
+
+        </div>
+
+        <!-- Security Controls -->
+
+        <div class="card">
+
+          <h2>Security Controls</h2>
+
+          <p>✓ Customer authentication and access control</p>
+          <p>✓ Sensitive customer information protection</p>
+          <p>✓ Fraud indicator detection</p>
+          <p>✓ Security event monitoring</p>
+          <p>✓ Security escalation workflow</p>
+
+          <p>
+            <strong>Data classification:</strong>
+            Synthetic banking data only.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="footer">
+        Secure Customer Support & Fraud Triage Prototype |
+        IBM Technology Zone / OpenShift |
+        Demonstration environment using synthetic data
+      </div>
+
+      <script>
+
+        document
+          .getElementById("supportForm")
+          .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const customerId =
+              document.getElementById("customerId").value;
+
+            const accountId =
+              document.getElementById("accountId").value;
+
+            const category =
+              document.getElementById("category").value;
+
+            const amount =
+              Number(document.getElementById("amount").value);
+
+            const location =
+              document.getElementById("location").value;
+
+            const description =
+              document.getElementById("description").value;
+
+            const failedLogins =
+              document.getElementById("failedLogins").checked;
+
+            const customerDenies =
+              document.getElementById("customerDenies").checked;
+
+            let risk = "NORMAL";
+
+            let reasons = [];
+
+            if (amount >= 50000) {
+
+              risk = "HIGH";
+
+              reasons.push(
+                "High-value transaction"
+              );
+
+            }
+
+            if (failedLogins) {
+
+              risk = "HIGH";
+
+              reasons.push(
+                "Multiple failed login attempts"
+              );
+
+            }
+
+            if (customerDenies) {
+
+              risk = "HIGH";
+
+              reasons.push(
+                "Customer denies the transaction"
+              );
+
+            }
+
+            if (
+              category === "Unauthorized Transaction" ||
+              category === "Suspicious Activity"
+            ) {
+
+              risk = "HIGH";
+
+              reasons.push(
+                "Fraud-related support category"
+              );
+
+            }
+
+            const result =
+              document.getElementById("result");
+
+            result.style.display = "block";
+
+            if (risk === "HIGH") {
+
+              result.innerHTML =
+                "<div class='warning'>" +
+
+                "<strong class='high'>" +
+                "HIGH RISK — CASE REQUIRES ESCALATION" +
+                "</strong>" +
+
+                "<p>" +
+                "Customer: " + customerId +
+                "<br>Account: " + accountId +
+                "<br>Location: " + location +
+                "<br>Transaction: KSh " + amount.toLocaleString() +
+                "</p>" +
+
+                "<p>" +
+                "<strong>Fraud indicators detected:</strong>" +
+                "</p>" +
+
+                "<ul>" +
+                reasons
+                  .map(function(reason) {
+                    return "<li>" + reason + "</li>";
+                  })
+                  .join("") +
+                "</ul>" +
+
+                "<button onclick=\"alert('Support case escalated to Security/Fraud Investigation.')\">" +
+                "Escalate Case" +
+                "</button>" +
+
+                "</div>";
+
+            } else {
+
+              result.innerHTML =
+                "<div class='success'>" +
+
+                "<strong class='normal'>" +
+                "NORMAL RISK — SUPPORT REQUEST CAN PROCEED" +
+                "</strong>" +
+
+                "<p>" +
+                "Customer: " + customerId +
+                "<br>Account: " + accountId +
+                "</p>" +
+
+                "<p>" +
+                "No high-risk fraud indicators were detected." +
+                "</p>" +
+
+                "<button onclick=\"alert('Support case marked for resolution.')\">" +
+                "Resolve Case" +
+                "</button>" +
+
+                "</div>";
+
+            }
+
+          });
+
+
+        function escalateCase(caseId) {
+
+          document.getElementById(
+            "escalationResult"
+          ).innerHTML =
+            "<div class='warning'>" +
+            "<p><strong>" +
+            caseId +
+            " has been escalated to Security/Fraud Investigation.</strong></p>" +
+            "<p>Next action: security review and transaction investigation.</p>" +
+            "</div>";
+
+        }
+
+      </script>
+
+    </body>
+    </html>
