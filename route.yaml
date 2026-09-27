@@ -1,0 +1,11 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: customer-support-route
+  namespace: secure-customer-support
+spec:
+  to:
+    kind: Service
+    name: customer-support-service
+  port:
+    targetPort: 8080
